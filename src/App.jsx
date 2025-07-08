@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-
+import photo from './assets/photo.jpg'
 const App = () => {
   const [length, setLength] = useState(8)
   const [numAllowed, setNumAllowed] = useState(false)
@@ -48,7 +48,11 @@ const App = () => {
 
   return (
     <>
-        <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8  text-orange-500 bg-gray-600'>
+      <div
+        className="min-h-screen bg-cover bg-center"
+        style={{ backgroundImage: `url(${photo})` }}
+      >
+        <div className='w-full max-w-xl min-h-[200px] mx-auto shadow-md rounded-lg px-8 text-orange-600 bg-gray-600 bg-opacity-80 flex flex-col justify-center'>
             <h1 className='text-white my-3 text-center'>Password Generator</h1>
               <div className='flex shadow rounded-lg overflow-hidden my-3 mb-4 pb-6'> 
                   <input type="text"
@@ -61,7 +65,7 @@ const App = () => {
                   <button onClick={copyPasswordToClipboard} className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>Copy</button>
               </div>
 
-              <div className='flex text-sm gap-2'>
+              <div className='flex text-sm gap-2 pb-3'>
                 <div className='flex items-center gap-x-1'>
                   <input type="range" 
                   value={length}
@@ -92,6 +96,7 @@ const App = () => {
                       <label htmlFor="charInput">Characters</label>                
                 </div>
               </div>
+        </div>
         </div>
     </>
   )
